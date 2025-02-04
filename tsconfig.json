@@ -1,11 +1,25 @@
 {
   "compileOnSave": false,
+  "include": [
+    "src/**/*.d.ts",
+    "src/typings.d.ts",
+    "./projects/shared-styles/src/styles.d.ts"
+  ],
   "compilerOptions": {
     "paths": {
       "auth-lib": [
         "dist/auth-lib"
+      ],
+      "shared-styles": [
+        "dist/shared-styles"
       ]
     },
+    "types": [
+      "node_modules/@types",
+      "src/**/*.d.ts",
+      "src/typings.d.ts",
+      "./projects/shared-styles/src/styles.d.ts"
+    ],
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

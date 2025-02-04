@@ -27,11 +27,17 @@
 							"projects/shell/src/assets"
 						],
 						"styles": [
-							"projects/shell/src/styles.css"
+							"projects/shell/src/styles.css",
+							"node_modules/shared-styles/styles.scss"
 						],
 						"scripts": [],
 						"extraWebpackConfig": "projects/shell/webpack.config.js",
-						"commonChunk": false
+						"commonChunk": false,
+						"stylePreprocessorOptions": {
+							"includePaths": [
+								"projects/shared-styles/src/lib"
+							]
+						}
 					},
 					"configurations": {
 						"production": {
@@ -139,7 +145,12 @@
 						],
 						"scripts": [],
 						"extraWebpackConfig": "projects/mfe1/webpack.config.js",
-						"commonChunk": false
+						"commonChunk": false,
+						"stylePreprocessorOptions": {
+							"includePaths": [
+								"projects/shared-styles/src/lib"
+							]
+						}
 					},
 					"configurations": {
 						"production": {
@@ -218,38 +229,69 @@
 					}
 				}
 			}
-    },
-    "auth-lib": {
-      "projectType": "library",
-      "root": "projects/auth-lib",
-      "sourceRoot": "projects/auth-lib/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/auth-lib/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/auth-lib/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/auth-lib/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/auth-lib/src/test.ts",
-            "tsConfig": "projects/auth-lib/tsconfig.spec.json",
-            "karmaConfig": "projects/auth-lib/karma.conf.js"
-          }
-        }
-      }
-    }
+		},
+		"auth-lib": {
+			"projectType": "library",
+			"root": "projects/auth-lib",
+			"sourceRoot": "projects/auth-lib/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/auth-lib/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/auth-lib/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/auth-lib/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/auth-lib/src/test.ts",
+						"tsConfig": "projects/auth-lib/tsconfig.spec.json",
+						"karmaConfig": "projects/auth-lib/karma.conf.js"
+					}
+				}
+			}
+		},
+		"shared-styles": {
+			"projectType": "library",
+			"root": "projects/shared-styles",
+			"sourceRoot": "projects/shared-styles/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/shared-styles/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/shared-styles/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/shared-styles/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"main": "projects/shared-styles/src/test.ts",
+						"tsConfig": "projects/shared-styles/tsconfig.spec.json",
+						"karmaConfig": "projects/shared-styles/karma.conf.js"
+					}
+				}
+			}
+		}
 	},
 	"cli": {
 		"analytics": "24b386d3-35b8-4848-8e60-96cf52326572"
