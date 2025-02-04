@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthLibService } from 'auth-lib';
-import 'shared-styles';
 
 @Component({
   selector: 'app-root',

@@ -45,11 +45,4 @@ module.exports = withModuleFederationPlugin({
 
   // Explicitly share mono-repo libs:
   sharedMappings: ['auth-lib'],
-  plugins: [
-    new ModuleFederationPlugin({
-      shared: {
-        'shared-styles': { singleton: true, strictVersion: true, requiredVersion: 'auto' }, // Shared styles library
-      },
-    }),
-  ]
 });
